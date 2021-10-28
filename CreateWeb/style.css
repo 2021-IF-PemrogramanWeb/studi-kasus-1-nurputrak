@@ -23,10 +23,10 @@
 .section1 h1 {
   text-align: center;
   margin:auto;
-  font-size: 4rem;
-  background-color: rgba(179, 179, 179, 0.384);
-  width: 150px;
-  color: #1c2d9c;
+  font-size: 3rem;
+  background-color: rgba(179, 179, 179, 0.205);
+  width: 180px;
+  color: #d3d3d3;
   }
   @media (max-width: 991.98px) {
     .section1 {
