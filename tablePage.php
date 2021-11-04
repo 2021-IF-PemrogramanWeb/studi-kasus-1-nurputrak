@@ -9,24 +9,28 @@
     
   </head>
   <body style="padding: 10px 10px 10px 10px;">
-    
-    
+  
+  <?php
+    $now = new DateTime();  
+  ?>  
+
   <div class="pagestyleInfo">
         <div class="row section1"> 
           <div class="column">
-            <img src="img/Logo-rmbg.png" alt="Car Logo" class="logo" style="margin-left: 0;">
+            <img src="img/Logo-rmbg.png" alt="img Logo" class="logo" style="margin-left: 0;">
           </div>
           <div class="column">
-              <h2 style="float: right; margin-top: 80px;">20/10/2021</h2>
+              <h2 style="float: right; margin-top: 80px;"><?php echo $now->format('Y-m-d');?></h2>
           </div>
         </div>
         <div class="row" style="margin-top: 50px;"> 
           <div class="section1 column" style="flex: 20%">
             <section class="button-menu">
-              <form action="GraphPage.html" method="POST">
-                <input type="submit2" name="submit2" value="Graph" class="btn btn-primary"><br>
-                <input type="submit3" name="submit3" value="Export" class="btn btn-primary"><br>
-                <input type="submit4" name="submit4" value="Log Out" class="btn btn-primary">
+              <form action="graphPage.php" method="POST">
+                <input type="submit" name="submit" value="Graph" class="btn btn-primary">
+              </form>
+              <form action="login.html" method="POST">
+                <input type="submit" name="submit2" value="Log Out" class="btn btn-primary">
               </form>
             </section>
           </div>
