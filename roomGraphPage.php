@@ -1,19 +1,41 @@
-<?php include ('config.php'); ?>
+<?php include ('config.php'); 
+  session_start();
+  
+  if( !isset($_COOKIE["username"])){
+    if( !isset($_SESSION["username"]) ){
+      header("location: login.html");
+      exit();
+    }
+    else{
+      setcookie('username', $_SESSION["username"], time()+(30), "/");
+    }
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Graph Page</title>
+    <title>Room Graph Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     
     
   </head>
   <body style="background-color: #e6e6e6;">
+
+    <div class="navbar" style="margin: -10px -10px -10px -10px; position: fixed">
+        <a class="active" href="tablePage.php"><i class="fa fa-fw fa-home"></i> Home</a> 
+        <a href="navigationGraphPage.php"><i class="fa fa-fw fa-bar-chart"></i> Chart</a>
+        <a href="#"><img src="img/img_avatar1.png" alt="Avatar" class="avatar" style="float: left;"> Profile</a>   
+        
+        <a href="logout.php" style="float: right;"><i class="fa fa-fw fa-sign-out"></i> Logout</a>
+    </div>
     
     <div style="padding: 30px;">
-      <H1 style="text-align: center; font-family: Helvetica, Sans-Serif;">Chart Data</H1>
+      <H2 style="text-align: center; font-family: Helvetica, Sans-Serif;">Chart Data Room</H2>
       <div>
         <canvas id="myBarChart" class="card"></canvas>
       </div>
@@ -43,14 +65,14 @@
                        <?php while ($p3 = mysqli_fetch_array($query3)) { echo '"' . $p3['jumlah'] . '"';}?>,
                        <?php while ($p4 = mysqli_fetch_array($query4)) { echo '"' . $p4['jumlah'] . '"';}?>,
                        <?php while ($p5 = mysqli_fetch_array($query5)) { echo '"' . $p5['jumlah'] . '"';}?>];
-        var barColors = ["rgb(135,206,250, 0.7)",  "rgb(0,139,139, 0.7)", "rgb(173,255,47, 0.7)", "rgb(218,165,32, 0.7)", "rgb(139,0,0 , 0.7)"];
+        var gColors = ["rgb(135,206,250, 0.7)",  "rgb(0,139,139, 0.7)", "rgb(173,255,47, 0.7)", "rgb(218,165,32, 0.7)", "rgb(139,0,0 , 0.7)"];
 
         new Chart("myBarChart", {
           type: "bar",
           data: {
             labels: xValues,
             datasets: [{
-              backgroundColor: barColors,
+              backgroundColor: gColors,
               data: yValues
             }]
           },
@@ -60,7 +82,7 @@
               yAxes: [{
                 ticks: {
                   beginAtZero: true,
-                  max: 7
+                  max: 10
                 }
               }],
             },
@@ -72,13 +94,12 @@
         });
 
 
-        var pieColors = ["rgb(135,206,250, 0.7)",  "rgb(0,139,139, 0.7)", "rgb(173,255,47, 0.7)", "rgb(218,165,32, 0.7)", "rgb(139,0,0 , 0.7)"];
         new Chart("myPieChart", {
           type: "pie",
           data: {
             labels: xValues,
             datasets: [{
-              backgroundColor: pieColors,
+              backgroundColor: gColors,
               data: yValues
             }]
           },

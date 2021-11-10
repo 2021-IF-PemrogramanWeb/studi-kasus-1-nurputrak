@@ -1,4 +1,41 @@
 /* CSS for Food SEarch Section */
+.navbar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: #000;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+
+.avatar {
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+
 .pagestyle {
   background-color: rgb(255, 255, 255);
   background-image: url(img/bg-img-blue2.jpg);
@@ -21,6 +58,7 @@
       border: solid;
       border-color: black;
       margin: auto;
+      height: auto;
 }
 @media (max-width: 991.98px) {
       .pagestyleInfo {
@@ -60,6 +98,7 @@
   width: 180px;
   color: #ffffff;
   }
+
 
   .row {
     display: flex;
@@ -182,10 +221,10 @@
     background-color: rgb(204, 72, 32);
     position: fixed;
     left: 100px;
-    bottom: 40px;
+    bottom: 70px;
   }
   .button-menu input[type="submit"]:hover, a:hover{
-    background-color: rgb(74, 84, 175);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0 0);
     cursor: pointer;
   }
   @media (max-width: 991.98px) {
@@ -203,6 +242,48 @@
       width: 100%;
     }
   }
+
+
+  .button-navgraph input[type="submit"]{
+    text-align: center;
+    color: #ffffff;
+    font-size: 20px;
+    size: 100px;
+    margin-top: 0px;
+    margin-bottom: 100px;
+    border-radius: 15px;
+    height: 200px;
+    width: 300px;
+    border: none;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px rgb(99, 99, 99);
+    justify-content: center;
+  }
+  .button-navgraph input[name="option1"]{
+    float: right; background-color: rgb(202, 154, 22);
+  }
+  .button-navgraph input[name="option2"]{
+    float: left; background-color:rgb(180, 82, 17);
+  }
+  .button-navgraph input[name="option3"]{
+    float: right; background-color:rgb(166, 202, 35);
+  }
+  .button-navgraph input[name="option4"]{
+    float: left; background-color:rgb(35, 113, 202);
+  }
+  .button-navgraph input[type="submit"]:hover, a:hover{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0 0);
+    cursor: pointer;
+  }
+  @media (max-width: 991.98px) {
+    .button-navgraph input[type="submit"]{
+      height: 130px;
+      width: 180px;
+      margin-top: -50px;
+      margin-left: 8px;
+    }
+  }
+  
   
 
 img.logo{
@@ -228,4 +309,5 @@ canvas.card{
     padding: 0px;
   }
 }
+
 

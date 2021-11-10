@@ -19,10 +19,19 @@
       while ($row = mysqli_fetch_array($result)) {
         // Assigning variable to password record
         $dbPass = $row['password'];
+        $user_name = $row['nama'];
       }
       // Verifying password
       if ($password == $dbPass) {
+        $_SESSION["username"] = $username;
+        $_SESSION["password"] = $password;
+        $_SESSION["nama"] = $user_name;
+
+        setcookie('username', $username, time()+(30), "/");
+
         header("location: tablePage.php");
+        //echo "username :" .$_SESSION["username"]. "<br>";
+        //echo "pass:" .$_SESSION["password"];
       } else {
         header("location: loginfail.html");
       }
