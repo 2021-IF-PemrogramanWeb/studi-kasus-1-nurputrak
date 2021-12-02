@@ -5,7 +5,8 @@
   // Variables taken from form
   $username = $_POST['username'];
   $password = $_POST['password'];
-
+  $password = md5($password);
+    
   // Accessing account from database
   $sql = "SELECT * FROM akun WHERE username='$username'";
   // Getting result from database
