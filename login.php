@@ -3,8 +3,8 @@
   include 'config.php';
 
   // Variables taken from form
-  $username = $_POST['username'];
-  $password = $_POST['password'];
+  $username = htmlspecialchars($_POST['username']);
+  $password = htmlspecialchars($_POST['password']);
   $password = md5($password);
     
   // Accessing account from database
